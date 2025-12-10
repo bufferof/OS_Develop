@@ -84,6 +84,14 @@ BEGIN_PROTECT_MODE:
 print_string_16bit:
     pusha
     mov ebx, VIDEO_MEMORY ;메모리 지정 필요
+.loop:
+    mov al, [ebx]
+    mov ah, WHITE_ON_BLACK
+    
+
+VIDEO_MEMORY equ 0xb8000
+WHITE_ON_BLACK equ 0x0f
+BOOT_DRIVE db 0
 
 ; 메시지들
 MSG_DISK_ERROR db "Disk got error :<", 0
